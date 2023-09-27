@@ -7,7 +7,7 @@ function Filter({ column }: { column: Column<any, unknown> }) {
     column.setFilterValue(event.target.value);
   };
 
-  return <input type="text" onChange={handleChange} />
+  return <input className='filterField' type="text" onChange={handleChange} />
 }
 
 export default Filter;

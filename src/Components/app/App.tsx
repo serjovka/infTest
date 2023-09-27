@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import './App.sass'
 import Table from '../table/Table'
+import Loading from "../loading/Loading"
 import { Product } from "../../types/types"
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    setLoading(true);
     fetch(`https://dummyjson.com/products`)
       .then(async (res) => {
         const products = await res.json();
@@ -25,10 +27,13 @@ function App() {
   },[]);
   
   return (
-    <div>
-      {( error === "" ) 
-      ? data !==null && <Table data={data} /> 
-      : <h1>{error}</h1> }
+    <div className='wrapper'>
+      {( error !== "" )
+      ? <h1>{error}</h1>
+      : loading
+      ? <Loading />
+      : data !==null && <Table data={data} /> 
+      }
     </div>
   )
 }

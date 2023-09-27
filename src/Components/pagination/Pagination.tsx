@@ -2,7 +2,7 @@ import  { Table } from '@tanstack/react-table'
 
 function Pagination({ table }: { table: Table<any> }) {
   return (
-    <div>
+    <div className='pagination'>
         <button
         onClick={() => table.setPageIndex(0)}
         disabled={!table.getCanPreviousPage()}

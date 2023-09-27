@@ -51,7 +51,7 @@ const columns = [
   }),
   columnHelper.accessor('images', {
     header: () => <span>Image</span>,
-    cell: tableProps => <img className='logo' src={tableProps.row.original.images[0]}></img>,
+    cell: tableProps => <img src={tableProps.row.original.images[0]} loading="lazy" alt={tableProps.row.original.title}></img>,
     enableSorting: false,
     enableColumnFilter: false,
   }),
