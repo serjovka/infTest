@@ -11,3 +11,5 @@ export type Product = {
     thumbnail: string;
     title: string;
 }
+
+export type InputChangeEventHandler = React.ChangeEventHandler<HTMLInputElement>;
